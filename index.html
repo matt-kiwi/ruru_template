@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="ruru_template.js"></script>
+        <link rel="stylesheet" href="template.css">
+    </head>
+    <body>
+        <p>Ruru template demonstation.<br>Optimised to run on embded systems, simple template format can run server side say for flat HTML for email, or on the client (browser). Do a view source to see the clean template.</p>
+        <div id="output"></div>
+    </body>
+<template id="template1">
+    <h3>The fruit bowl</h3>
+    <span>Bowl is ${bowlType}, and it's color is ${color}</span><br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id number</th>
+            <th>Fruit</th>
+            <th>Inside Color</th>
+            <th>Outside Color</th>
+        </tr>
+    </thead>
+    <tbody>
+<!--ForEach fruit in fruits  -->
+        <tr>
+            <td>${fruit.id}</td>
+            <td>${fruit.name}</td>
+            <td>${fruit.color.inside}</td>
+            <td>${fruit.color.outside|none}</td>
+        </tr>
+<!--/ForEach  -->
+    </tbody>
+</table>
+</template>
+
+<script>
+fruitData = {
+    bowlType:"ceramic",
+    color: "white",
+    fruits: [
+        {id:7,name:"Banana",color:{inside:"white",outside:"yellow"}},
+        {id:93,name:"Strawberry",color:{outside:"red"}},
+        {id:21,name:"Dragon fruit",color:{inside:"white",outside:"red"}}
+    ]
+};
+
+function pageInit(){
+    templateProcess("template1","output",fruitData);
+}
+window.onload = pageInit;
+</script>
+</html>

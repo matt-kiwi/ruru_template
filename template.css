@@ -1,3 +1,7 @@
+body {
+    background-color: #eef5f5;
+}
+
 table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -21,7 +25,7 @@ tbody tr {
 }
 
 tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: lightgray;
 }
 
 tbody tr:last-of-type {
@@ -30,4 +34,9 @@ tbody tr:last-of-type {
 
 tbody tr:hover {
     background-color: yellow !important;
+}
+
+tbody tr[data-freshness="Rotten"] {
+    background-color: #f07b7b !important;
+    font-weight: bold;
 }

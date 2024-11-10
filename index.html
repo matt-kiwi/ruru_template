@@ -1,15 +1,18 @@
 <html>
     <head>
+        <title>Ruru template demo</title>
         <script src="ruru_template.js"></script>
         <link rel="stylesheet" href="template.css">
     </head>
     <body>
         <p>Ruru template demonstation.<br>Optimised to run on embded systems, simple template format can run server side say for flat HTML for email, or on the client (browser). Do a view source to see the clean template.</p>
+        <p>Demo source code can be found here <a href="https://github.com/matt-kiwi/ruru_template">https://github.com/matt-kiwi/ruru_template</a></p>
         <div id="output"></div>
     </body>
 <template id="template1">
     <h3>The fruit bowl</h3>
-    <span>Bowl is ${bowlType}, and it's color is ${color}</span><br><br>
+    <span>Bowl is ${bowlType}, and it's color is ${color} containing ${fruits.length} items.</span><br>
+    <span>Error handling undefined var: "${blah.xx}", Undefined var with default:"${blah.xx|*my_default*}"</span><br>
 <table border="1">
     <thead>
         <tr>
@@ -17,15 +20,17 @@
             <th>Fruit</th>
             <th>Inside Color</th>
             <th>Outside Color</th>
+            <th>Feshness</th>
         </tr>
     </thead>
     <tbody>
 <!--ForEach fruit in fruits  -->
-        <tr>
+        <tr id="fruitId-${fruit.id}" data-freshness="${fruit.freshness}">
             <td>${fruit.id}</td>
             <td>${fruit.name}</td>
             <td>${fruit.color.inside}</td>
             <td>${fruit.color.outside|none}</td>
+            <td>${fruit.freshness}</td>
         </tr>
 <!--/ForEach  -->
     </tbody>
@@ -37,9 +42,10 @@ fruitData = {
     bowlType:"ceramic",
     color: "white",
     fruits: [
-        {id:7,name:"Banana",color:{inside:"white",outside:"yellow"}},
-        {id:93,name:"Strawberry",color:{outside:"red"}},
-        {id:21,name:"Dragon fruit",color:{inside:"white",outside:"red"}}
+        {id:7,name:"Banana",color:{inside:"white",outside:"yellow"},freshness:"Fresh"},
+        {id:93,name:"Strawberry",color:{outside:"red"},freshness:"OK"},
+        {id:15,name:"Pear",color:{inside:"white",outside:"brown"},freshness:"OK"},
+        {id:21,name:"Dragon fruit",color:{inside:"white",outside:"red"},freshness:"Rotten"}
     ]
 };
 

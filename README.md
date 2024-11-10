@@ -13,7 +13,7 @@ If only I had something similiar that would run on an ESP32 server....
 - Templates should be pure HTML.
 - Data source, simple Javascript object
 - Support multidimensional data objects
-- Same templates can run on browser of NodeJS backend
+- Same templates can run on browser or NodeJS backend
 - Generate flat HTML for HTML email.
 - Simple variable injection into template.
 - Array/Object processing for tables / lists.
@@ -77,7 +77,7 @@ We use HTML comment blocks to insert a for each loop, this is to stop the DOM re
 
  ```<!--ForEach fruit in fruits  -->```
  
- Iterate over "fruits" in list replacing with "fruit" object for thst row, similiar to Javascript ForEach.
+ Iterate over "fruits" in list replacing with "fruit" object for that row, similiar to Javascript ForEach.
 
 ```HTML
 <template id="template1">

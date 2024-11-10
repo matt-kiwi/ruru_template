@@ -48,7 +48,7 @@ Sample template
 </template>
 ```
 
-Process the temoplate in Javascript
+Process the template in Javascript
 ```Javascript
 templateProcess("myTemplate","myOutput",fruitData);
 
@@ -77,7 +77,7 @@ We use HTML comment blocks to insert a for each loop, this is to stop the DOM re
 
  ```<!--ForEach fruit in fruits  -->```
  
- Iterate over "fruits" in list replacing with fruit, similiar to Javascript ForEach.
+ Iterate over "fruits" in list replacing with "fruit" object for thst row, similiar to Javascript ForEach.
 
 ```HTML
 <template id="template1">
@@ -106,7 +106,7 @@ We use HTML comment blocks to insert a for each loop, this is to stop the DOM re
 </template>
 ```
 
-Output sytlised with CSS
+Output stylised with CSS
 ![alt Generated table with CSS](docs/table_screen_shot.png)
 
 To run these examples you only need three files;

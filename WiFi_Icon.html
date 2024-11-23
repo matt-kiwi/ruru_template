@@ -1,5 +1,13 @@
 <html>
   <head>
+    <title>Ruru Icons</title>
+<script>
+window.onload = pageInit;
+function pageInit(){
+  zz = document.getElementsByTagName("icon-signal");
+  console.log(zz);
+}
+</script>
   <style>
     .icon {
       height: 250px;width: 250px; border: 1px solid blue; display: block;
@@ -47,6 +55,7 @@
     </g>
   </svg>
   </icon-signal>
+  <span>Signal bars&nbsp;</span><input id="signalInput">
   <br />
   <icon-battery data-bars="3" class="icon">
     <svg viewBox="0 0 24 24">
@@ -63,5 +72,6 @@
       <path class="cross-out" d="M2 4 L22 20 M22 4 L2 20" />
     </svg>
   </icon-battery>
+  <span>Battery bars&nbsp;</span><input id="batteryInput">
   </body>
 </html>

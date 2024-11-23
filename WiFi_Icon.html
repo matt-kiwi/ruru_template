@@ -1,60 +1,63 @@
 <html>
+  <head>
+  <style>
+    .icon {
+      height: 25px;width: 25px; border: 1px solid blue; display: block;
+    }
+    icon-signal {
+      --bar-on-color: green;
+      --bar-off-color: lightgrey;
+      --cross-out-color: red;
+    }
+
+    icon-battery {
+      --bar-on-color: green;
+      --bar-off-color: lightgrey;
+      --cross-out-color: red;
+      --outline-color: black;
+    }
+
+    icon-signal .bars {fill:var(--bar-off-color,lightgrey); }
+    icon-signal .bar1 {fill: var(--bar-on-color) }
+    icon-signal .bar0 {fill: var(--bar-on-color) }
+    icon-signal .cross-out {fill: var(--cross-out-color,red); display: none;}
+
+    icon-battery .outline {stroke:var(--outline-color,black); fill:none;}
+    icon-battery .bars {stroke:var(--outline-color,black);stroke-width:0.1;fill:var(--bar-off-color,lightgrey); }
+    icon-battery .bar0 {fill:var(--bar-on-color); }
+    icon-battery .cross-out {display: none; stroke:var(--cross-out-color,red); stroke-width:2; stroke-linecap: round;}
+  </style>
+  </head>
     <body>
-    <svg class="icon-signal-strength" style="height: 25px;width: 25px; border: 1px solid blue;"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green" stroke-width="4">
-    <path class="bar3" d="M1.371 8.143 c5.858-5.857 15.356-5.857 21.214 0 a.75.75 0 0 1 0 1.061l-.53.53 a.75.75 0 0 1-1.061 0 c-4.98-4.979-13.053-4.979-18.032 0 a.75.75 0 0 1-1.06 0l-.53-.53 a.75.75 0 0 1 0-1.06" />
-    <path class="bar2" d="M4.582 11.300 c4.1-4.1 10.749-4.1 14.85 0 a.75.75 0 0 1 0 1.061l-.53.53 a.75.75 0 0 1-1.062 0 a8.25 8.25 0 0 0-11.667 0 a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06" />
-    <path class="bar1" d="M7.754 14.482 a6 6 0 0 1 8.486 0 a.75.75 0 0 1 0 1.061l-.53.53 a.75.75 0 0 1-1.061 0 a3.75 3.75 0 0 0-5.304 0 a.75.75 0 0 1-1.06 0 l-.53-.53 a.75.75 0 0 1 0-1.06" />
-    <path class="bar0" d="M10.900 17.682 a1.5 1.5 0 0 1 2.122 0 a.75.75 0 0 1 0 1.061l-.53.53 a.75.75 0 0 1-1.061 0 l-.53-.53 a.75.75 0 0 1 0-1.06" />
-    <path class="cross_out" stroke-width="2" stroke="red" d="M0 0 L24 24 M0 24 L24 0" />
+      <b>SVG Icon demo</b><br>
+    <icon-signal data-bars="3" class="icon">
+    <svg viewBox="0 0 24 24" >
+      <g class="bars">
+      <path class="bar3" d="M1.371 8.143 c5.858 -5.857 15.356 -5.857 21.214 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 c-4.98 -4.979 -13.053 -4.979 -18.032 0 a0.75 0.75 0 0 1 -1.06 0 l-0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
+      <path class="bar2" d="M4.582 11.300 c4.1 -4.1 10.749 -4.1 14.85 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.062 0 a8.25 8.25 0 0 0 -11.667 0 a.75.75 0 0 1 -1.06 0 l-0.53-0.53 a0.75 0.75 0 0 1 0 -1.06" />
+      <path class="bar1" d="M7.754 14.482 a6 6 0 0 1 8.486 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 a3.75 3.75 0 0 0 -5.304 0 a0.75 0.75 0 0 1-1.06 0 l-0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
+      <path class="bar0" d="M10.900 17.682 a1.5 1.5 0 0 1 2.122 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 l -0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
+    </g>
+    <g class="cross-out">
+      <path  d="M2.1 23.3 L23.3 2.1 a0.75 0.75 0 0 0 -1.2 -1.2 L0.9 22.1 a0.75 0.75 0 0 0 1.2 1.2" />
+      <path  d="M2.1 0.7 L23 22 a0.75 0.75 0 0 1 -1.2 1.2 L 1 2 a0.75 0.75 0 0 1 1.2 -1.2 " />
+    </g>
   </svg>
+  </icon-signal>
   <br />
 
-  <svg class="icon-signal-strength" style="height: 250px;width: 250px; border: 1px solid blue;"
-  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green" stroke-width="1"
-  fill="none"
-  stroke="currentColor"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-  viewBox="0 0 24 24"
->
-  <path d="M4 7 H16 A2 2 0 0 1 18 9 V15 A2 2 0 0 1 16 17 H4 A2 2 0 0 1 2 15 V9 A2 2 0 0 1 4 7 z" />
-  <xpath d="M22 11v2M6 11v2M10 11v2M14 11v2" />
-</svg>
-
-<svg class="svg-icon battery-level" style="height: 250px;width: 250px; border: 1px solid blue;"
-fill="none"
-stroke="currentColor"
-strokeLinecap="round"
-strokeLinejoin="round"
-strokeWidth={2}
-viewBox="0 0 24 24"
-height="1em"
-width="1em"
-{...props}
->
-<path d="M4 7 H16 A2 2 0 0 1 18 9 V15 A2 2 0 0 1 16 17 H4 A2 2 0 0 1 2 15 V9 A2 2 0 0 1 4 7 z" />
-<path d="M22 11v2M6 11v2M10 11v2M14 11v2" />
-</svg>
-    </body>
-</html>
-
-
-    <svg class="svg-icon battery-level" style="height: 250px;width: 250px; border: 1px solid blue;"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      viewBox="0 0 24 24"
-      height="1em"
-      width="1em"
-      {...props}
-    >
-      <path d="M4 7 H16 A2 2 0 0 1 18 9 V15 A2 2 0 0 1 16 17 H4 A2 2 0 0 1 2 15 V9 A2 2 0 0 1 4 7 z" />
-      <path d="M22 11v2M6 11v2M10 11v2M14 11v2" />
+    <icon-battery data-bars="3" class="icon">
+    <svg viewBox="0 0 24 24">
+      <path class="outline" fill="none" d="M2 7 H20 a2 2 0 0 1 1.2 1.2 v8 a2 2 0 0 1 -1.2 1.2 h-17.8 a2 2 0 0 1 -1.2 -1.2 v-8 a2 2 0 0 1 1.2 -1.2 z M22 10 v4 h0.5 v-4" />
+      <g class="bars">
+        <path class="bar0" d="M2.5 8 v8.5 h3 v-8.5 z " />
+        <path class="bar1" d="M6 8 v8.5 h3 v-8.5 z" />
+        <path class="bar2" d="M9.5 8 v8.5 h3 v-8.5 z" />
+        <path class="bar3" d="M13 8 v8.5 h3 v-8.5 z" />
+        <path class="bar4" d="M16.5 8 v8.5 h3 v-8.5 z" />
+      </g>
+      <path class="cross-out" d="M2 4 L22 20 M22 4 L2 20" />
     </svg>
-
-
-
-
+  </icon-battery>
+  </body>
+</html>

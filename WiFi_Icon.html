@@ -4,8 +4,61 @@
 <script>
 window.onload = pageInit;
 function pageInit(){
-  zz = document.getElementsByTagName("icon-signal");
-  console.log(zz);
+  const oSignalIconTest =  document.getElementById("signalIconTest1");
+  oSignalIconTest.update = sigUpdate;
+  oSignalIconTest.update();
+
+  function sigUpdate(){
+    const sigLevel = this.dataset.bars;
+    const oCrossOut = this.getElementsByClassName('cross-out')[0];
+    const oBar0 = this.getElementsByClassName('bar0')[0];
+    const oBar1 = this.getElementsByClassName('bar1')[0];
+    const oBar2 = this.getElementsByClassName('bar2')[0];
+    const oBar3 = this.getElementsByClassName('bar3')[0];
+    if( sigLevel == 0 ) oCrossOut.classList.add('on'); else oCrossOut.classList.remove('on');
+    if( sigLevel >= 1 ) oBar0.classList.add('on'); else oBar0.classList.remove('on');
+    if( sigLevel >= 2 ) oBar1.classList.add('on'); else oBar1.classList.remove('on');
+    if( sigLevel >= 3 ) oBar2.classList.add('on'); else oBar2.classList.remove('on');
+    if( sigLevel >= 4 ) oBar3.classList.add('on'); else oBar3.classList.remove('on');
+  }
+
+  const oBatteryIconTest =  document.getElementById("batteryIconTest1");
+  oBatteryIconTest.update = batteryUpdate;
+  oBatteryIconTest.update();
+
+  function batteryUpdate(){
+    const battLevel = this.dataset.bars;
+    const oCrossOut = this.getElementsByClassName('cross-out')[0];
+    const oBar0 = this.getElementsByClassName('bar0')[0];
+    const oBar1 = this.getElementsByClassName('bar1')[0];
+    const oBar2 = this.getElementsByClassName('bar2')[0];
+    const oBar3 = this.getElementsByClassName('bar3')[0];
+    const oBar4 = this.getElementsByClassName('bar4')[0];
+    if( battLevel == 0 ) oCrossOut.classList.add('on'); else oCrossOut.classList.remove('on');
+    if( battLevel >= 1 ) oBar0.classList.add('on'); else oBar0.classList.remove('on');
+    if( battLevel >= 2 ) oBar1.classList.add('on'); else oBar1.classList.remove('on');
+    if( battLevel >= 3 ) oBar2.classList.add('on'); else oBar2.classList.remove('on');
+    if( battLevel >= 4 ) oBar3.classList.add('on'); else oBar3.classList.remove('on');
+    if( battLevel >= 5 ) oBar4.classList.add('on'); else oBar4.classList.remove('on');
+  }
+
+  document.getElementById("signalSlider").addEventListener('input',signalSlider);
+  function signalSlider(evt){
+    const signalLevel = this.value;
+    document.getElementById("signalValue").innerText = signalLevel;
+    const oSignalIcon = document.getElementById("signalIconTest1");
+    oSignalIcon.dataset.bars =  signalLevel;
+    oSignalIcon.update();
+  }
+
+  document.getElementById("batterySlider").addEventListener('input',batterySlider);
+  function batterySlider(evt){
+    const batteryLevel = this.value;
+    document.getElementById("batteryValue").innerText = batteryLevel;
+    const oBatteryIcon = document.getElementById("batteryIconTest1");
+    oBatteryIcon.dataset.bars =  batteryLevel;
+    oBatteryIcon.update();
+  }
 }
 </script>
   <style>
@@ -39,14 +92,14 @@ function pageInit(){
   </head>
     <body>
       <b>SVG Icon demo</b><br>
-    <icon-signal data-bars="3" class="icon">
+    <icon-signal data-bars="2" class="icon" id="signalIconTest1">
     <svg viewBox="0 0 24 24" >
       <g class="bars">
         <!-- add class="barx on" to show a bar -->
       <path class="bar3" d="M1.371 8.143 c5.858 -5.857 15.356 -5.857 21.214 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 c-4.98 -4.979 -13.053 -4.979 -18.032 0 a0.75 0.75 0 0 1 -1.06 0 l-0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
       <path class="bar2" d="M4.582 11.300 c4.1 -4.1 10.749 -4.1 14.85 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.062 0 a8.25 8.25 0 0 0 -11.667 0 a.75.75 0 0 1 -1.06 0 l-0.53-0.53 a0.75 0.75 0 0 1 0 -1.06" />
-      <path class="bar1 on" d="M7.754 14.482 a6 6 0 0 1 8.486 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 a3.75 3.75 0 0 0 -5.304 0 a0.75 0.75 0 0 1-1.06 0 l-0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
-      <path class="bar0 on" d="M10.900 17.682 a1.5 1.5 0 0 1 2.122 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 l -0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
+      <path class="bar1" d="M7.754 14.482 a6 6 0 0 1 8.486 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 a3.75 3.75 0 0 0 -5.304 0 a0.75 0.75 0 0 1-1.06 0 l-0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
+      <path class="bar0" d="M10.900 17.682 a1.5 1.5 0 0 1 2.122 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 l -0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
     </g>
     <!-- add class="cross-out on" to show cross out -->
     <g class="cross-out ">
@@ -55,14 +108,14 @@ function pageInit(){
     </g>
   </svg>
   </icon-signal>
-  <span>Signal bars&nbsp;</span><input id="signalInput">
-  <br />
-  <icon-battery data-bars="3" class="icon">
+  <b>Signal Icon:</b><input type="range" min="0" max="4" value="2" id="signalSlider">&nbsp;
+  data-bars=&quot;<span id="signalValue">1</span>&quot;<br /><br />
+  <icon-battery data-bars="2" class="icon" id="batteryIconTest1">
     <svg viewBox="0 0 24 24">
       <path class="outline" fill="none" d="M2 7 H20 a2 2 0 0 1 1.2 1.2 v8 a2 2 0 0 1 -1.2 1.2 h-17.8 a2 2 0 0 1 -1.2 -1.2 v-8 a2 2 0 0 1 1.2 -1.2 z M22 10 v4 h0.5 v-4" />
       <g class="bars">
         <!-- add class="barx on" to show a bar -->
-        <path class="bar0 on" d="M2.5 8 v8.5 h3 v-8.5 z " />
+        <path class="bar0" d="M2.5 8 v8.5 h3 v-8.5 z " />
         <path class="bar1" d="M6 8 v8.5 h3 v-8.5 z" />
         <path class="bar2" d="M9.5 8 v8.5 h3 v-8.5 z" />
         <path class="bar3" d="M13 8 v8.5 h3 v-8.5 z" />
@@ -72,6 +125,7 @@ function pageInit(){
       <path class="cross-out" d="M2 4 L22 20 M22 4 L2 20" />
     </svg>
   </icon-battery>
-  <span>Battery bars&nbsp;</span><input id="batteryInput">
+  <b>Battery Icon:</b><input type="range" min="0" max="5" value="2" id="batterySlider">&nbsp;
+  data-bars=&quot;<span id="batteryValue">2</span>&quot;<br /><br />
   </body>
 </html>

@@ -63,7 +63,7 @@ function pageInit(){
 </script>
   <style>
     .icon {
-      height: 250px;width: 250px; border: 1px solid blue; display: block;
+      height: 500px;width: 500px; border: 1px solid blue; display: block;
     }
     icon-signal {
       --bar-on-color: green;
@@ -80,8 +80,8 @@ function pageInit(){
 
     icon-signal .bars {fill:var(--bar-off-color,lightgrey); }
     icon-signal .bars .on {fill: var(--bar-on-color, green) }
-    icon-signal .cross-out {display: none;}
-    icon-signal .cross-out.on  {fill:var(--cross-out-color,red); display:block;}
+    icon-signal .cross-out {stroke:var(--cross-out-color,red); stroke-width:2; stroke-linecap: round; display: none;}
+    icon-signal .cross-out.on {display:block;}
 
     icon-battery .outline {stroke:var(--outline-color,black); fill:none;}
     icon-battery .bars {stroke:var(--outline-color,black);stroke-width:0.1;fill:var(--bar-off-color,lightgrey); }
@@ -102,10 +102,7 @@ function pageInit(){
       <path class="bar0" d="M10.900 17.682 a1.5 1.5 0 0 1 2.122 0 a0.75 0.75 0 0 1 0 1.061 l-0.53 0.53 a0.75 0.75 0 0 1 -1.061 0 l -0.53 -0.53 a0.75 0.75 0 0 1 0 -1.06" />
     </g>
     <!-- add class="cross-out on" to show cross out -->
-    <g class="cross-out ">
-      <path  d="M2.1 23.3 L23.3 2.1 a0.75 0.75 0 0 0 -1.2 -1.2 L0.9 22.1 a0.75 0.75 0 0 0 1.2 1.2" />
-      <path  d="M2.1 0.7 L23 22 a0.75 0.75 0 0 1 -1.2 1.2 L 1 2 a0.75 0.75 0 0 1 1.2 -1.2 " />
-    </g>
+    <path class="cross-out" d="M2.5 2.5 L21.5 21.5 M2.5 21.5 L21.5 2.5" />
   </svg>
   </icon-signal>
   <b>Signal Icon:</b><input type="range" min="0" max="4" value="2" id="signalSlider">&nbsp;
